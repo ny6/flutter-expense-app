@@ -13,7 +13,6 @@ class TransactionList extends StatelessWidget {
     return Container(
       height: 300,
       child: ListView.builder(
-        // itemBuilder: (ctx, index) => transactions[index].getTransactionCard(),
         itemBuilder: (ctx, index) => Card(
           child: Row(
             children: <Widget>[
@@ -40,10 +39,7 @@ class TransactionList extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     transactions[index].title,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
+                    style: Theme.of(context).textTheme.title,
                   ),
                   Text(DateFormat.yMMMd().format(transactions[index].date)),
                 ],

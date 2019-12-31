@@ -3,6 +3,7 @@ import './models/transaction.dart';
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
 import './widgets/chart.dart';
+import './utils/constants.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,8 +15,20 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         primarySwatch: Colors.purple,
         accentColor: Colors.amber,
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(title: kTextTheme),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(title: kTitleStyle),
+        ),
       ),
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.dark().textTheme.copyWith(title: kTextTheme),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.dark().textTheme.copyWith(title: kTitleStyle),
+        ),
+      ),
       home: MyHomePage(),
     );
   }
