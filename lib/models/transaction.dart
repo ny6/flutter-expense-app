@@ -27,7 +27,7 @@ class Transaction {
                 ),
               ),
               child: Text(
-                '\$$amount',
+                '\$${amount.toStringAsFixed(2)}',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
