@@ -92,17 +92,19 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).requestFocus(new FocusNode());
-        },
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Chart(_recentTransactions),
-              TransactionList(_userTransactions),
-            ],
+      body: SafeArea(
+        child: GestureDetector(
+          onTap: () {
+            FocusScope.of(context).requestFocus(new FocusNode());
+          },
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Chart(_recentTransactions),
+                TransactionList(_userTransactions),
+              ],
+            ),
           ),
         ),
       ),

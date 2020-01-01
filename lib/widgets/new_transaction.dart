@@ -36,6 +36,7 @@ class _NewTransactionState extends State<NewTransaction> {
     final amount = _amountController.text;
 
     if (title.isEmpty || amount.isEmpty || _selectedDate == null) return;
+    if (double.parse(amount) <= 0) return;
 
     widget.onSubmit(title, double.parse(amount), _selectedDate);
 
@@ -66,9 +67,11 @@ class _NewTransactionState extends State<NewTransaction> {
               height: 70,
               child: Row(
                 children: <Widget>[
-                  Text(_selectedDate == null
-                      ? 'No Date Choosen!'
-                      : DateFormat.yMMMd().format(_selectedDate)),
+                  Expanded(
+                    child: Text(_selectedDate == null
+                        ? 'No Date Choosen!'
+                        : 'Picked Date: ${DateFormat.yMMMd().format(_selectedDate)}'),
+                  ),
                   FlatButton(
                     textColor: getPrimaryColor(context),
                     child: Text(
