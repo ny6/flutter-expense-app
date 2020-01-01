@@ -14,12 +14,12 @@ class ChartBar extends StatelessWidget {
       builder: (ctx, constraint) => Column(
         children: <Widget>[
           Container(
-            height: constraint.maxHeight * 0.15,
+            height: constraint.maxHeight * 0.11,
             child: FittedBox(child: Text('\$${amount.toStringAsFixed(2)}')),
           ),
           SizedBox(height: constraint.maxHeight * 0.05),
           Container(
-            height: constraint.maxHeight * 0.6,
+            height: constraint.maxHeight * 0.67,
             width: 10,
             child: Stack(
               children: <Widget>[
@@ -44,7 +44,7 @@ class ChartBar extends StatelessWidget {
           ),
           SizedBox(height: constraint.maxHeight * 0.05),
           Container(
-            height: constraint.maxHeight * 0.15,
+            height: constraint.maxHeight * 0.12,
             child: FittedBox(child: Text(label)),
           ),
         ],
