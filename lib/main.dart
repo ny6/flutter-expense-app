@@ -16,7 +16,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
         accentColor: Colors.amber,
         fontFamily: 'Quicksand',
-        textTheme: ThemeData.light().textTheme.copyWith(title: kTextTheme),
+        textTheme: ThemeData.light().textTheme.copyWith(
+            title: kTextTheme,
+            button: ThemeData.light()
+                .textTheme
+                .button
+                .copyWith(color: Colors.white)),
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(title: kTitleStyle),
         ),
@@ -24,7 +29,12 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         fontFamily: 'Quicksand',
-        textTheme: ThemeData.dark().textTheme.copyWith(title: kTextTheme),
+        textTheme: ThemeData.dark().textTheme.copyWith(
+            title: kTextTheme,
+            button: ThemeData.light()
+                .textTheme
+                .button
+                .copyWith(color: Colors.black)),
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.dark().textTheme.copyWith(title: kTitleStyle),
         ),
@@ -42,12 +52,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Transaction> _userTransactions = [];
 
-  void _addNewTransaction(String title, double amount) {
+  void _addNewTransaction(String title, double amount, DateTime date) {
     final tx = Transaction(
       id: title,
       title: title,
       amount: amount,
-      date: DateTime.now(),
+      date: date,
     );
 
     setState(() {
