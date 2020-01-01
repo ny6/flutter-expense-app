@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
-      builder: (_) => NewTransaction(_addNewTransaction),
+      builder: (_) => SafeArea(child: NewTransaction(_addNewTransaction)),
     );
   }
 
