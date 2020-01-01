@@ -92,8 +92,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final isLandscape =
-        MediaQuery.of(context).orientation == Orientation.landscape;
+    final mediaQuery = MediaQuery.of(context);
+    final isLandscape = mediaQuery.orientation == Orientation.landscape;
 
     final PreferredSizeWidget appBar = Platform.isIOS
         ? CupertinoNavigationBar(
@@ -118,9 +118,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           );
 
-    final viewHeight = MediaQuery.of(context).size.height -
+    final viewHeight = mediaQuery.size.height -
         appBar.preferredSize.height -
-        MediaQuery.of(context).padding.top;
+        mediaQuery.padding.top;
 
     final txListWidget = Container(
       height: viewHeight * 0.65,
@@ -135,7 +135,10 @@ class _MyHomePageState extends State<MyHomePage> {
     final showChartWidget = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text('Show Chart'),
+        Text(
+          'Show Chart',
+          style: Theme.of(context).textTheme.title,
+        ),
         Switch.adaptive(
           activeColor: Theme.of(context).accentColor,
           value: _showChart,
