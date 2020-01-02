@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:expense/utils/helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './models/transaction.dart';
@@ -97,7 +98,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final PreferredSizeWidget appBar = Platform.isIOS
         ? CupertinoNavigationBar(
-            middle: Text('Personal Expenses'),
+            middle: Text(
+              'Personal Expenses',
+              style: TextStyle(
+                color: isDarkTheme(context) ? Colors.white : Colors.black,
+              ),
+            ),
+            backgroundColor: Colors.transparent,
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
