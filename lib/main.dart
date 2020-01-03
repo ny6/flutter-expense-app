@@ -165,12 +165,12 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            if (!isLandscape) getChartWidget(0.3),
-            if (!isLandscape) txListWidget,
-            if (isLandscape) showChartWidget,
-            if (isLandscape) _showChart ? getChartWidget(0.7) : txListWidget,
-          ],
+          children: isLandscape
+              ? [
+                  showChartWidget,
+                  _showChart ? getChartWidget(0.7) : txListWidget,
+                ]
+              : [getChartWidget(0.3), txListWidget],
         ),
       ),
     );
